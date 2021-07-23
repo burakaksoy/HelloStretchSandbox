@@ -3,8 +3,8 @@ HOSTS=("192.168.1.64" "192.168.1.128" )
 USERNAMES=("hello-robot" "hello-robot")
 PASSWORDS=("hello2020" "hello2020" )
 
-SCRIPTS=("cd ~/catkin_ws; git reset --hard; git pull;"
-    "cd ~/catkin_ws; git reset --hard; git pull;")
+SCRIPTS=("cd ~/catkin_ws_burak; git reset --hard; git pull;"
+    "cd ~/catkin_ws_burak; git reset --hard; git pull;")
 for i in ${!HOSTS[*]} ; do
     echo "------------"
     # echo ${HOSTS[i]}
