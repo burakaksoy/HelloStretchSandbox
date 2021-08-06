@@ -1,5 +1,5 @@
 #!/bin/bash
-HOSTS=("192.168.1.64" "192.168.1.128" )
+HOSTS=("192.168.1.64" "192.168.1.28" )
 USERNAMES=("hello-robot" "hello-robot")
 PASSWORDS=("hello2020" "hello2020" )
 
