@@ -2,8 +2,8 @@
 
 | Description             | Username       | Hostname (Computer Name) | IP            | Password  | OS           | ROS     |
 | ---                     | ---            | ---                      | ---           | ---       | ---          | ---     |
-| Stretch Robot (Grey)    | hello-robot    | stretch-re1-1027         | 192.168.1.64  | hello2020 | Ubuntu 18.04 | Melodic |
-| Stretch Robot (Yellow)  | hello-robot    | stretch-re1-1028         | 192.168.1.128 | hello2020 | Ubuntu 18.04 | Melodic |
+| Stretch Robot (Yellow)    | hello-robot    | stretch-re1-1027         | 192.168.1.64  | hello2020 | Ubuntu 18.04 | Melodic |
+| Stretch Robot (Grey)  | hello-robot    | stretch-re1-1028         | 192.168.1.128 | hello2020 | Ubuntu 18.04 | Melodic |
 
 # Commonly Used Stretch Robot Tools
 
@@ -31,12 +31,13 @@ export GAZEBO_RESOURCE_PATH=<your-download-path>/lab_gazebo/worlds
 
 Then, follow the instructions to setup the stretch gazebo as described [here](https://github.com/hello-robot/stretch_ros/blob/master/stretch_gazebo/README.md#setup).
 
-To run the gazebo simulation, I slightly edited default `gazebo.launch` file to make the gazebo world as lab instead of empty world and also added position parameters to specify the initial position of the stretch robot in the lab. The new launch file is [here](). Copy it into `stretch_ros/stretch_gazebo/launch/` next to `gazebo.launch` file. After that, you can run
+To run the gazebo simulation, I slightly edited default `gazebo.launch` file to make the gazebo world as lab instead of empty world and also added position parameters to specify the initial position of the stretch robot in the lab. The new launch file is [here](https://github.com/burakaksoy/HelloStretchSandbox/blob/main/gazebo_stretch_lab.launch). Copy it into `stretch_ros/stretch_gazebo/launch/` next to `gazebo.launch` file. After that, you can run
 
 ```
 roslaunch stretch_gazebo gazebo_stretch_lab.launch rviz:=true
 ```
 Now you should be able to see Gazebo and Rviz with a Stretch Robot in the lab world.
 
+![stretch_gazebo_in_lab](https://github.com/burakaksoy/HelloStretchSandbox/blob/main/.images/stretch_gazebo_in_lab.png?raw=true)
 
 *Note: you can use `killall gzserver` and `killall gzclient` commands to shutdown Gazebo.*
