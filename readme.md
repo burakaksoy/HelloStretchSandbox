@@ -21,3 +21,22 @@ The commonly used commands after sshing into the robots are given below.
 
 Note: The table above is copied from [here](https://github.com/hello-robot/stretch_body/blob/master/docs/stretch_body_guide.md#commonly-used-tools) 
 
+# How to setup Stretch robot Gazebo simulation with a Lab world?
+
+Gazebo Lab world is [here](https://github.com/burakaksoy/AssistiveRobot-SimulationFiles/tree/master/catkin_ws_gazebo/src/lab_gazebo). Download it to your computer and Add the following lines to `~/.bashrc` and then source.
+```
+export GAZEBO_MODEL_PATH=<your-download-path>/lab_gazebo/models
+export GAZEBO_RESOURCE_PATH=<your-download-path>/lab_gazebo/worlds
+```
+
+Then, follow the instructions to setup the stretch gazebo as described [here](https://github.com/hello-robot/stretch_ros/blob/master/stretch_gazebo/README.md#setup).
+
+To run the gazebo simulation, I slightly edited default `gazebo.launch` file to make the gazebo world as lab instead of empty world and also added position parameters to specify the initial position of the stretch robot in the lab. The new launch file is [here](). Copy it into `stretch_ros/stretch_gazebo/launch/` next to `gazebo.launch` file. After that, you can run
+
+```
+roslaunch stretch_gazebo gazebo_stretch_lab.launch rviz:=true
+```
+Now you should be able to see Gazebo and Rviz with a Stretch Robot in the lab world.
+
+
+*Note: you can use `killall gzserver` and `killall gzclient` commands to shutdown Gazebo.*
