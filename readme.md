@@ -52,8 +52,7 @@ With the real robots one would run `roslaunch stretch_navigation mapping.launch`
 
 For the Gazebo simulation, however, we don't need to launch stretch_driver and lidar sensors from `stretch_core` package because,although differently, they are already provided with previously mentioned Gazebo package launching command `roslaunch stretch_gazebo gazebo_stretch_lab.launch rviz:=false` (ie. `/scan` topic by lidar sensor is already published by gazebo and `/stretch_diff_drive_controller/cmd_vel` topic is listened to move the base, instead of `/stretch/cmd_vel`, also `/tf` is also provided by gazebo which means there is no need for stretch_core package). 
 
-Based on explanation above, I edited the `mapping.launch` file as `mapping_gazebo_2D.launch` that can be found in [here](). Copy it into `stretch_ros/stretch_navigation/launch/` next to `mapping.launch` file. After that, you can run
-
+Based on explanation above, I edited the `mapping.launch` file as `mapping_gazebo_2D.launch` that can be found in [here](https://github.com/burakaksoy/HelloStretchSandbox/blob/main/mapping_gazebo_2D.launch). Copy it into `stretch_ros/stretch_navigation/launch/` next to `mapping.launch` file. After that, you can run:
 ```
 roslaunch stretch_navigation mapping_gazebo_2D.launch
 ```
