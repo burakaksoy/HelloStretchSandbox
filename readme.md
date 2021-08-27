@@ -37,7 +37,27 @@ To run the gazebo simulation, I slightly edited default `gazebo.launch` file to 
 roslaunch stretch_gazebo gazebo_stretch_lab.launch rviz:=true
 ```
 Now you should be able to see Gazebo and Rviz with a Stretch Robot in the lab world.
-
 ![stretch_gazebo_in_lab](https://github.com/burakaksoy/HelloStretchSandbox/blob/main/.images/stretch_gazebo_in_lab.png?raw=true)
 
+If you will open Rviz with another launch use:
+```
+roslaunch stretch_gazebo gazebo_stretch_lab.launch rviz:=false
+```
+
 *Note: you can use `killall gzserver` and `killall gzclient` commands to shutdown Gazebo.*
+
+# How to run 2D Mapping on Gazebo simulation?
+
+With the real robots one would run `roslaunch stretch_navigation mapping.launch` as described in [here](https://github.com/hello-robot/stretch_ros/tree/master/stretch_navigation#readme) to start 2D mapping. This launch file launches stretch_driver and lidar sensors from `stretch_core` package. It also launches keyboard teleoperation with topic name `/stretch/cmd_vel`, a configured rviz to visualize the map, and finally launches `gmapping` package for the mapping. 
+
+For the Gazebo simulation, however, we don't need to launch stretch_driver and lidar sensors from `stretch_core` package because,although differently, they are already provided with previously mentioned Gazebo package launching command `roslaunch stretch_gazebo gazebo_stretch_lab.launch rviz:=false` (ie. `/scan` topic by lidar sensor is already published by gazebo and `/stretch_diff_drive_controller/cmd_vel` topic is listened to move the base, instead of `/stretch/cmd_vel`, also `/tf` is also provided by gazebo which means there is no need for stretch_core package). 
+
+Based on explanation above, I edited the `mapping.launch` file as `mapping_gazebo_2D.launch` that can be found in [here](). Copy it into `stretch_ros/stretch_navigation/launch/` next to `mapping.launch` file. After that, you can run
+
+```
+roslaunch stretch_navigation mapping_gazebo_2D.launch
+```
+Now you can start 2D mapping in simulation with your keyboard input.
+![stretch_gazebo_in_lab](https://github.com/burakaksoy/HelloStretchSandbox/blob/main/.images/stretch_gazebo_in_lab_2D_mapping.png?raw=true)
+
+*Note: How to save the constructed map is described in [here](https://github.com/hello-robot/stretch_ros/tree/master/stretch_navigation#readme). For example: I created an example 2D map of the simulated lab in gazebo with command `rosrun map_server map_saver -f ./maps/lab2d` in maps directory of this repo.*
