@@ -1,7 +1,7 @@
-image: ./maps/lab2d.pgm
+image: ./lab2d.pgm
 resolution: 0.050000
 origin: [-100.000000, -100.000000, 0.000000]
 negate: 0
-occupied_thresh: 0.65
-free_thresh: 0.196
+occupied_thresh: 0.65 # 0.9 # 0.65
+free_thresh: 0.196 # 0.7 # 0.196
 
